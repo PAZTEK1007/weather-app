@@ -3,43 +3,93 @@ header {
   margin: 0;
 }
 header #nav-menu {
+  position: fixed;
+  top: -50%;
+  left: -25%;
   width: 100%;
-  height: 1rem;
+  height: 1.5rem;
   margin-top: -8px;
   margin-left: -10px;
   list-style: none;
   display: flex;
-  justify-content: space-around;
   flex-direction: row;
-  background-color: black;
+  justify-content: flex-end;
+  align-items: center;
   padding: 1rem 1rem;
 }
 header #nav-menu .nav-items {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+}
+header #nav-menu a {
   text-decoration: none;
   text-transform: uppercase;
+  padding: 4px 8px;
   font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  font-size: 12px;
   color: white;
 }
-header #nav-menu .nav-items:hover {
-  border: 1px solid white;
-  border-radius: 8px;
-  padding: 8px 16px;
+header #nav-menu a:hover {
+  border-bottom: 1px solid rgb(82, 82, 82);
+  background-color: rgb(30, 30, 30);
+  padding: 4px 8px;
+  border-spacing: 32px;
+  border-radius: 5px;
 }
-header #nav-menu #text-input {
+
+#text-input {
+  position: relative;
+  top: 5px;
+  left: 20%;
   width: 200px;
   height: 17px;
   border: 1px solid rgb(123, 123, 123);
   border-radius: 16px;
-  padding-top: -2px;
   background-color: rgb(74, 74, 74);
   color: white;
+  font-size: 12px;
+  text-align: center;
+  padding: 2px 3px;
 }
 
+#nav-container {
+  margin-top: -10px;
+  margin-left: -10px;
+  background-color: black;
+  width: 100%;
+  padding: 1rem;
+  height: 2rem;
+}
+
+@media (max-width: 768px) {
+  #text-input {
+    position: relative;
+    top: 5px;
+    left: 12%;
+    width: 200px;
+    height: 17px;
+    border: 1px solid rgb(123, 123, 123);
+    border-radius: 16px;
+    background-color: rgb(74, 74, 74);
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 2px 3px;
+  }
+}
 .hamburger {
-  display: none;
+  display: block;
+  position: fixed;
+  top: 15px;
+  right: 30px;
   cursor: pointer;
 }
-.hamburger .bar {
+
+.bar {
   display: block;
   width: 25px;
   height: 3px;
@@ -48,20 +98,50 @@ header #nav-menu #text-input {
   background-color: white;
 }
 
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-    position: fixed;
-    top: 30px;
-    right: 30px;
-  }
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
+#nav-container {
+  margin-top: -10px;
+  margin-left: -10px;
+  background-color: black;
+  width: 100%;
+  padding: 1rem;
+  height: 2rem;
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+#nav-menu {
+  position: relative;
+  top: -100%;
+  right: -100%;
+  width: 10%;
+  height: 10%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+#nav-menu.active {
+  left: -70px;
+  right: 0;
+  top: 10px;
 }/*# sourceMappingURL=style.css.map */
