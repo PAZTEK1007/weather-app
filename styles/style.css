@@ -151,7 +151,6 @@ header #nav-menu a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30px;
 }
 
 .card {
@@ -159,26 +158,51 @@ header #nav-menu a:hover {
   flex-direction: column;
   justify-content: center;
   background-color: rgb(225, 225, 225);
+  margin-top: 1.6rem;
   border-radius: 25px;
-  margin-top: 1rem;
   width: 230px;
-  height: 300px;
-  gap: 30px;
+  height: 420px;
+}
+
+.description {
+  position: relative;
+  top: -65px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.weatherIcon {
+  width: 230px;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .temperature {
+  position: relative;
+  bottom: 95px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-weight: bolder;
-  font-size: 40px;
+  font-size: 38px;
 }
 
 .city {
+  position: relative;
+  top: 30px;
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 18px;
   text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
   border-bottom: 2px solid black;
-  padding-bottom: 1rem;
 }/*# sourceMappingURL=style.css.map */

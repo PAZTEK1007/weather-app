@@ -22,6 +22,7 @@ const getWeatherData = async (city) => {
         };
     } catch (error) {
         console.error("Erreur lors de la requête à l'API OpenWeather : " + error);
+        throw error;
     }
 };
 
@@ -33,6 +34,7 @@ const cardComponent = async () => {
     const fragment = document.createDocumentFragment();
 
     weatherData.forEach(data => {
+
         const card = document.createElement('div');
         card.classList.add('card');
 
@@ -44,11 +46,29 @@ const cardComponent = async () => {
         temperature.classList.add('temperature');
         temperature.textContent = `${data.temperature} °C`;
 
+        const icon = document.createElement('img');
+        icon.classList.add('weatherIcon');
+
         const description = document.createElement('p');
         description.classList.add('description');
         description.textContent = `${data.description}`;
 
+        if (data.description === "Clouds") {
+            icon.src = "./public/img/icon/cloudy.svg";
+        } else if (data.description === "Clear") {
+            icon.src = "./public/img/icon/day.svg";
+        } else if (data.description === "Rain") {
+            icon.src = "./public/img/icon/rainy-1.svg";
+        } else if (data.description === "Snow") {
+            icon.src = "./public/img/icon/snowy-1.svg";
+        } else if (data.description === "Thunderstorm") {
+            icon.src = "./public/img/icon/thunder.svg";
+        } else if (data.description === "Drizzle") {
+            icon.src = "./public/img/icon/rainy-4.svg";
+        }
+
         card.appendChild(city);
+        card.appendChild(icon);
         card.appendChild(description);
         card.appendChild(temperature);
 
