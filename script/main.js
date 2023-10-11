@@ -1,5 +1,9 @@
 import { hamMenu } from './components/nav.js';
-import { data } from './components/card.js';
+import { card } from './card.js';
+import { scroller } from './components/scrollers.js';
 
-data();
+
+card();
 hamMenu();
+scroller()
+

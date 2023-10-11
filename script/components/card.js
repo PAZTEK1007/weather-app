@@ -1,32 +1,6 @@
-
-const data = async () => {
-
-const apiKey = "785b8de1d01961c956e950a339e714ff";
-const app = document.querySelector('#app');
-const textInput = document.getElementById("text-input");
-
-const getWeatherData = async (city) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        return {
-            city: data.name,
-            country: data.sys.country,
-            temperature: data.main.temp,
-            description: data.weather[0].main,
-            humidity: data.main.humidity,
-            windSpeed: data.wind.speed,
-            sunrise: data.sys.sunrise,
-            sunset: data.sys.sunset
-        };
-    } catch (error) {
-        console.error("Erreur lors de la requête à l'API OpenWeather : " + error);
-        throw error;
-    }
-};
-
 const cardComponent = async () => {
+    const app = document.querySelector('#app');
+    const textInput = document.getElementById("text-input");
     const cities = textInput.value.split(',');
     const weatherDataPromises = cities.map(city => getWeatherData(city));
     const weatherData = await Promise.all(weatherDataPromises);
@@ -76,14 +50,14 @@ const cardComponent = async () => {
     });
 
     app.appendChild(fragment);
+
+    textInput.addEventListener("keyup", async function(event) {
+        if (event.key === "Enter") {
+            app.innerHTML = "";
+            await cardComponent();
+        }
+    });
+
 };
 
-textInput.addEventListener("keyup", async function(event) {
-    if (event.key === "Enter") {
-        app.innerHTML = "";
-        await cardComponent();
-    }
-});
-};
-
-export { data };
+export { cardComponent };
