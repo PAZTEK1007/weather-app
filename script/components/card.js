@@ -1,6 +1,6 @@
 const card = () => {
 
-const apiKey = '785b8de1d01961c956e950a339e714ff';
+const apiKey = import.meta.env.VITE_WEATHER_API;
 const app = document.querySelector('#app');
 const textInput = document.getElementById("text-input");
 
@@ -91,7 +91,6 @@ const updateWeatherCards = async () => {
 textInput.addEventListener("keyup", async function(event) {
     if (event.key === "Enter") {
         await updateWeatherCards();
-        await updateCastCards();
     }
 });
 }
